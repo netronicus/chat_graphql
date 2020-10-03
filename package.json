@@ -28,6 +28,7 @@
     "log4js": "^6.3.0",
     "moment": "^2.27.0",
     "mongoose": "^5.10.0",
+    "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.0.0"
   }

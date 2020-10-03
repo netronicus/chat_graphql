@@ -7,7 +7,18 @@ import { getHeaders } from "./helpers/headers.helper";
 import { ChatResolver } from './resolvers/chat.resolver';
 import mongoose from "mongoose";
 
-mongoose.connect('mongodb://localhost:27017/chat', {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}).then(()=>{
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'wingman_db'
+});
+connection.connect((err: any) => {
+    if(err){
+      console.log('Error connecting to Db');
+      return;
+    }
     const init = async (port: any = 4020) => {
         const schema = await buildSchema({
             resolvers: [
@@ -38,4 +49,5 @@ mongoose.connect('mongodb://localhost:27017/chat', {useNewUrlParser: true, useUn
         return server;
     }
     init(process.env.PORT_GRAPHQL||4020);
-});
+  })
+
