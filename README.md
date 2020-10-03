@@ -1,0 +1,1 @@
+Simple server for a chat with graphql
