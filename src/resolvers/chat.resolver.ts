@@ -20,7 +20,7 @@ export class ChatResolver {
     allMessages(
         @Arg("conversation", { nullable: false }) conversation: String,
     ) {
-        return this.conversations;
+        return this.conversations.filter(c=>c.conversation==conversation);
     }
 
     @Mutation(returns => Boolean)
