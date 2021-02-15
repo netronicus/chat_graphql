@@ -7,6 +7,7 @@ export class Message {
     @Field() message: String;
     @Field() date: Number;
     @Field() from: String;
+    @Field() usuario: String;
 }
 
 export interface MessageInterface {
@@ -15,4 +16,5 @@ export interface MessageInterface {
     message: String;
     date: Number;
     from: String;
+    usuario: String;
 }

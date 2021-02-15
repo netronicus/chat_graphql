@@ -48,6 +48,8 @@ connection.connect((err: any) => {
         logger.info(`Server is running on ${url}`);
         return server;
     }
+    process.setMaxListeners(0);
     init(process.env.PORT_GRAPHQL||4020);
+    
   })
 

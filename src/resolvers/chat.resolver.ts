@@ -28,9 +28,10 @@ export class ChatResolver {
         @PubSub() pubSub: PubSubEngine,
         @Arg("message") message: string,
         @Arg("conversation") conversation: String,
-        @Arg("from") from: String
+        @Arg("from") from: String,
+        @Arg("usuario") usuario: String
     ): Promise<boolean> {
-        const payload: MessageInterface = { _id:Math.random().toString(), conversation, message, date: moment().unix(), from};
+        const payload: MessageInterface = { _id:Math.random().toString(), conversation, message, date: moment().unix(), from, usuario};
         this.conversations.push(payload);
         console.log(payload);
         await pubSub.publish("NEWMESSAGE", payload);
