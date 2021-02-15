@@ -5,13 +5,19 @@ import { buildSchema } from "type-graphql";
 import { logger } from './helpers/logger.helper';
 import { getHeaders } from "./helpers/headers.helper";
 import { ChatResolver } from './resolvers/chat.resolver';
-import mongoose from "mongoose";
 
 const mysql = require('mysql');
 const connection = mysql.createConnection({
+  /*
   host: 'localhost',
   user: 'wingman_user',
   password: 'M+51+~W2EH)t',
+  database: 'wingman_db'
+  */
+
+  host: 'localhost',
+  user: 'root',
+  password: '',
   database: 'wingman_db'
 });
 connection.connect((err: any) => {
